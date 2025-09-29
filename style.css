@@ -1,67 +1,103 @@
+:root {
+  --accent: #e11d48; 
+  --muted: #9ca3af;
+  --bg: #000000;
+  --surface: #1a1a1a;
+  --text: #ffffff;
+}
+
 body {
-    background-color: rgb(17, 17, 17);
-    margin: 0;
-    padding: 0;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  line-height: 1.6;
+  padding-top: 72px;
+  background-color: var(--bg);
+  color: var(--text);
+  margin: 0;
 }
 
-h1 {
-    color: aliceblue;
-    text-align: center;
-    font-size: 50px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+.inicio {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: var(--text);
+}
+.inicio::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+}
+.inicio-contenido { position: relative; z-index: 2; }
+
+.btn-cta {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  transition: transform .18s ease, box-shadow .18s ease, opacity .12s ease;
+}
+.btn-cta:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(225,29,72,0.28); }
+
+.navbar { background-color: var(--surface) !important; }
+.navbar .nav-link, .navbar .navbar-brand { color: var(--text) !important; }
+.navbar .nav-link:hover { color: var(--accent) !important; }
+
+.tarjeta-producto {
+  transition: transform .25s ease, box-shadow .25s ease;
+  background-color: var(--surface);
+  color: var(--text);
+  border: 1px solid #2d2d2d;
+}
+.tarjeta-producto:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+}
+.tarjeta-producto img { object-fit: cover; height: 220px; }
+
+#galeriaCarrusel img {
+  height: 500px;
+  object-fit: cover;
+  border-radius: .5rem;
 }
 
-/* CONTENEDOR DEL CARRUSEL */
-.carrusel {
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    padding: 10px;
-    width: 100%;
-    box-sizing: border-box;
+.mision, .vision { color: #000000; margin-top: 20px; }
+.h4 { color: #000000; font-size: 30px; text-decoration: underline; }
 
-    /* centrado de primera y última imagen */
-    scroll-padding-left: calc(50% - 400px);
-    scroll-padding-right: calc(50% - 400px);
+.prices-card {
+  background-color: var(--surface);
+  border-radius: .75rem;
+  padding: .5rem;
 }
 
-/* CADA ITEM DEL CARRUSEL */
-.carrusel div {
-    flex: 0 0 auto;
-    scroll-snap-align: center;
+.division {
+  border: 0;
+  height: 1px;
+  background: #ffffff;
+  margin: 2rem 0;
+  opacity: 0.2;
 }
 
-/* IMÁGENES */
-.carrusel img {
-    width: 800px;
-    height: 500px;
-    object-fit: cover;
-    border-radius: 10px;
-    display: block;
+.tarjeta-contacto {
+  background-color: var(--surface);
+  color: var(--text);
+  border: 1px solid #2d2d2d;
+  border-radius: .5rem;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
 }
 
-/* QUITAR SCROLLBAR */
+footer { background: #000000; color: #9ca3af; padding: 2rem 0; }
+footer a { color: inherit; text-decoration: none; }
 
-.carrusel::-webkit-scrollbar {
-    display: none;
+.plain-ul { list-style: disc; padding-left: 1.25rem; }
+.plain-ul li { margin-bottom: .5rem; }
+
+@media (max-width: 991px) {
+  .tarjeta-producto img { height: 180px; }
 }
-
-.subt{
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
-    color: aliceblue;
-    text-align: center;
-    font-size: 27px;
-}
-
-.parrfin{
-    color: aliceblue;
-    text-align: center;
-    font-size: 20px;
-}
-
-.formulario{
-    font-size: 20px;
-    color: aliceblue;
+@media (max-width: 576px) {
+  .inicio { min-height: 50vh; }
+  .tarjeta-producto img { height: 160px; }
+  .prices-card { padding: .25rem; }
 }
